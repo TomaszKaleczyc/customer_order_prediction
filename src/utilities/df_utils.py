@@ -1,3 +1,4 @@
+from typing import Any
 from IPython.display import display
 from pandas import DataFrame
 
@@ -28,3 +29,10 @@ def show_stats(df: DataFrame, stats_column_name: str) -> None:
     """
     display(df[stats_column_name].describe())
     df[stats_column_name].plot.hist()
+
+
+def get_zip_code_stem(zip_code: Any) -> str:
+    """
+    Returns zip code stem
+    """
+    return zip_code[:2] if str(zip_code).isnumeric() else zip_code
